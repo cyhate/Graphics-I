@@ -1,2 +1,11 @@
-# Graphics-I
-OpenGL Labs and Exercises
+# University Project ~ Andreas
+==================================================
+
+Graphics-I
+
+=====================================
+
+1. OpenGL 
+2. Labs and Exercises
+
+======================================
