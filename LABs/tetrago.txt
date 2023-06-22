@@ -1,0 +1,39 @@
+#include <windows.h>
+#include <GL/glut.h>
+
+void display212() {
+ glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+ glClear(GL_COLOR_BUFFER_BIT);
+
+glBegin(GL_QUADS);		// Each	set	of	4	vertices	form	a	quad
+ glColor3f(0.0f, 1.0f,	0.0f);	// Green
+ glVertex2f(-0.5f, -0.5f);	// x,	y
+ glVertex2f( 0.5f, -0.5f);
+ glVertex2f( 0.5f, 0.5f);
+ glVertex2f(-0.5f, 0.5f);
+
+ glColor3f(0.83f, 0.35f,	0.73f);	//	Blue
+ glVertex2f(-0.25f, -0.25f);				// x,	y
+ glVertex2f( 0.5f, -0.25f);
+ glVertex2f( 0.5f, 0.25f);
+ glVertex2f(-0.25f, 0.25f);
+
+
+
+glEnd();
+
+
+
+glFlush();	 	// Render now
+
+}
+
+int main(int argc, char** argv) {
+ glutInit(&argc,argv);
+ glutCreateWindow("My first OpenGL application");
+ glutInitWindowSize(800,600);
+ glutInitWindowPosition(75,75);
+ glutDisplayFunc(display212);
+ glutMainLoop();
+ return 0;
+}

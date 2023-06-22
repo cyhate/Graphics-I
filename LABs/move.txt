@@ -1,0 +1,57 @@
+#include <windows.h>
+#include <GL/glut.h>
+
+void init(void)
+{
+glClearColor(0.0,0.0,0.0,0.0); // black background
+glMatrixMode(GL_PROJECTION);
+glLoadIdentity();
+glOrtho(-15.0, 15.0, -15.0, 15.0, -15.0 , 15.0);
+}
+
+void display(void)
+
+{
+glClear(GL_COLOR_BUFFER_BIT);
+
+glBegin(GL_QUADS);
+glColor3f(0.0f, 1.0f, 0.0f);
+glVertex2f(-0.5f,-0.5f);
+glVertex2f(0.5f,-0.5f);
+glVertex2f(0.5f,0.5f);
+glVertex2f(-0.5f,0.5f);
+glEnd();
+glutSwapBuffers();
+
+}
+
+void keyboard(unsigned char key, int x, int y)
+{
+switch (key)
+{
+case 'a':
+glTranslatef(3.0, 0.0, 0.0);
+break;
+case 's':
+glTranslatef(-3.0, 0.0, 0.0);
+break;
+case 'q':
+glTranslatef(0.0, 3.0, 0.0);
+break;
+}
+display();
+}
+
+int main (int argc, char **argv) 
+{
+glutInit(&argc, argv);
+glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB );
+glutInitWindowSize(1200,600);
+glutInitWindowPosition(50,50);
+glutCreateWindow("Move Object");
+init();
+glutDisplayFunc(display);
+glutKeyboardFunc(keyboard);
+glutMainLoop();
+return 0;
+}
